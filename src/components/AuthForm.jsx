@@ -13,7 +13,8 @@ const AuthForm = ({ mode, onSubmit }) => {
   };
 
   const handleSubmit = (e) => {
-    setFormData(e);
+    e.preventDefault();
+    onSubmit(formData);
   };
 
   return (
