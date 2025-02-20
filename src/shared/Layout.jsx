@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="flex bg-red-500 justify-between items-center">
-      <Link to="/">홈</Link>
-      <Link to="/login">로그인</Link>
+    <div className="flex bg-white-400 shadow-lg p-8 justify-between items-center">
+      <Link className="text-xl font-medium hover:text-blue-500 " to="/">
+        홈
+      </Link>
+      <Link className="text-xl hover:text-blue-500 " to="/login">
+        로그인
+      </Link>
     </div>
   );
 }
@@ -13,8 +17,8 @@ function Header() {
 const Layout = ({ children }) => {
   return (
     <div>
-      <Header  />
-      <div>{children}</div>
+      <Header />
+      <div classNameName="flex flex-col m-10 items-center ">{children}</div>
     </div>
   );
 };

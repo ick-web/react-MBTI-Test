@@ -16,12 +16,15 @@ const Signup = () => {
 
   return (
     <div>
-      <div>
-        <h1>회원가입</h1>
+      <div className="bg-white p-11 rounded-xl shadow-xl ">
+        <h1 className="text-3xl font-bold">회원가입</h1>
         <AuthForm mode="signup" onSubmit={handleSignup} />
         <div>
           <p>
-            이미 계정이 있으신가요? <Link to="/login">로그인</Link>
+            이미 계정이 있으신가요?{" "}
+            <Link className="text-blue-500 hover:text-black" to="/login">
+              로그인
+            </Link>
           </p>
         </div>
       </div>
