@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Layout = () => {
+function Header() {
   return (
-    <div>Layout</div>
-  )
+    <div class="flex bg-red-50 content-between">
+      <Link to="/">홈</Link>
+      <Link to="/login">로그인</Link>
+    </div>
+  );
 }
 
-export default Layout
+const Layout = ({ children }) => {
+  return (
+    <div>
+      <Header />
+      <div class="flex">{children}</div>
+    </div>
+  );
+};
+
+export default Layout;
