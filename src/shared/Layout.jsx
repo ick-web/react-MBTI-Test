@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div class="flex bg-red-50 content-between">
+    <div className="flex bg-red-500 justify-between items-center">
       <Link to="/">홈</Link>
       <Link to="/login">로그인</Link>
     </div>
@@ -13,8 +13,8 @@ function Header() {
 const Layout = ({ children }) => {
   return (
     <div>
-      <Header />
-      <div class="flex">{children}</div>
+      <Header  />
+      <div>{children}</div>
     </div>
   );
 };
