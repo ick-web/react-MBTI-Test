@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const loginAlert = () => {
+    alert("로그인을 먼저 해주세요.");
+  };
+
   return (
     <div className="flex flex-col m-10 items-center">
       <h1 className="text-3xl font-bold p-4 ">너의 성격을 알아보자!</h1>
@@ -12,7 +16,9 @@ const Home = () => {
         className="bg-blue-500 hover:bg-blue-400 p-4 border-2 border-solid rounded-xl"
         to="test"
       >
-        <button className="text-white">내 성격 알아보러 가기</button>
+        <button onClick={loginAlert} className="text-white">
+          내 성격 알아보러 가기
+        </button>
       </Link>
     </div>
   );
