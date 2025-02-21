@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
     const [isLogin,setIsLogin] = useState(false);
+    const [user, setUser] = useState()
 
   return (
     <div className="flex bg-white-400 shadow-lg p-8 justify-between items-center">

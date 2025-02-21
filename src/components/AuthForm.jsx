@@ -9,7 +9,11 @@ const AuthForm = ({ mode, onSubmit }) => {
   });
 
   const handleChange = (e) => {
-    setFormData(e.target.value);
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {

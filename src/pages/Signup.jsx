@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { register } from "../api/auth";
 import AuthForm from "../components/AuthForm";
 
 const Signup = () => {
@@ -8,9 +9,11 @@ const Signup = () => {
   const handleSignup = async (formData) => {
     try {
       await register(formData);
+      alert("회원가입에 성공했습니다.!")
       navigate("/login");
     } catch (error) {
       alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+      console.log(formData)
     }
   };
 
