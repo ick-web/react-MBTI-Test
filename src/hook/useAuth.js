@@ -21,6 +21,7 @@ export const useAuth = () => {
       localStorage.setItem("accessToken", data.accessToken);
       queryClient.invalidateQueries(["user"]); // 로그인 후 user 정보 다시 가져오기
       navigate("/");
+      window.location.reload();
     },
   });
 
@@ -29,6 +30,7 @@ export const useAuth = () => {
     localStorage.removeItem("accessToken");
     queryClient.invalidateQueries(["user"]); // 로그아웃 후 user 정보 무효화
     navigate("/login");
+    window.location.reload();
   };
 
   return { user, isLoading, loginMutation, logout };

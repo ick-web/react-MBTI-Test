@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../hook/useAuth";
 
 const Home = () => {
+  const { user } = useAuth();
+
   const loginAlert = () => {
-    alert("로그인을 먼저 해주세요.");
+    if (!user) return alert("로그인을 먼저 해주세요.");
   };
 
   return (
