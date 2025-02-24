@@ -1,16 +1,18 @@
 {
   "testResults": [
     {
-      "id": "9a8d",
-      "result": "ESFP"
+      "id": "2ca6",
+      "nickname": "test",
+      "userId": "test12",
+      "result": "ESFJ",
+      "date": "2025. 2. 24. 오후 4:45:59"
     },
     {
-      "id": "77cd",
-      "result": "ESFJ"
-    },
-    {
-      "id": "372b",
-      "result": "ESFP"
+      "id": "630a",
+      "nickname": "test",
+      "userId": "test12",
+      "result": "ESTJ",
+      "date": "2025. 2. 24. 오후 4:57:28"
     }
   ]
 }
