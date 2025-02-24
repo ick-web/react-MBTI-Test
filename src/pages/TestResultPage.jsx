@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { getTestResults } from "../api/testResults";
+import { mbtiDescriptions } from "../utils/mbtiCalculator";
 
 const TestResultPage = () => {
   const {
@@ -16,18 +17,34 @@ const TestResultPage = () => {
   if (error) return <p>오류 발생: {error.message}</p>;
 
   return (
-    <div className="m-full p-3">
-      <ul>
+    <div className="w-full flex justify-center border-2 rounded-2xl">
+      <ul className="w-full max-w-2xl rounded-2xl">
         {results.map((result) => (
           <li
             key={result.id}
-            className="p-4 w-2xl flex flex-col items-center bg-slate-500 m-4"
+            className="p-6 w-full rounded-xl flex flex-col bg-slate-500 m-4"
           >
-            <div className="flex w-full bg-white-400 shadow-lg p-8 justify-between">
-              <p>{result.nickname}</p>
-              <p> {result.date}</p>
+            <div className="flex w-full w-2xl mb-5 justify-between">
+              <p className="text-3xl font-semibold text-white">
+                {result.nickname}
+              </p>
+              <p className="text-white"> {result.date}</p>
             </div>
-            <p>결과: {result.result}</p>
+            <p className="text-xl font-semibold text-yellow-300">
+              {result.result}
+            </p>
+            <p className="text-white mb-5">
+              {" "}
+              {mbtiDescriptions[result.result]}
+            </p>
+            <div className="flex flex-row gap-3 justify-end">
+              <button className="bg-blue-500 text-white w-13 hover:bg-blue-400 p-4 border-2 border-none rounded-xl">
+                공개로 전환
+              </button>
+              <button className="bg-red-500 text-white w-13 hover:bg-red-400 p-4 border-2 border-none rounded-xl">
+                삭제
+              </button>
+            </div>
           </li>
         ))}
       </ul>

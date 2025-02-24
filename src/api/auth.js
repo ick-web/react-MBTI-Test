@@ -4,8 +4,13 @@ const API_URL = "https://www.nbcamp-react-auth.link";
 
 // 회원가입 (POST)
 export const register = async (userData) => {
-  const response = await axios.post(`${API_URL}/register`, userData);
-  return response.data;
+  try {
+    const response = await axios.post(`${API_URL}/register`, userData);
+    return response.data;
+  } catch (error) {
+    console.log("회원가입 오류:", error.response?.data);
+    throw error;
+  }
 };
 
 //로그인 (POST)
