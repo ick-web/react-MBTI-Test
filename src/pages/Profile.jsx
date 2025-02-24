@@ -12,7 +12,7 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    updateProfile(nickname);
+    updateProfile({nickname:nickname});
   };
 
   return (

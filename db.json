@@ -1,25 +1,18 @@
 {
   "testResults": [
     {
-      "id": "2ca6",
+      "id": "0e92",
       "nickname": "test",
       "userId": "test12",
-      "result": "ESFJ",
-      "date": "2025. 2. 24. 오후 4:45:59"
+      "result": "ISFP",
+      "date": "2025. 2. 24. 오후 8:57:39"
     },
     {
-      "id": "630a",
-      "nickname": "test",
-      "userId": "test12",
-      "result": "ESTJ",
-      "date": "2025. 2. 24. 오후 4:57:28"
-    },
-    {
-      "id": "c373",
+      "id": "75a4",
       "nickname": "yellow",
       "userId": "react33",
-      "result": "INFP",
-      "date": "2025. 2. 24. 오후 5:30:17"
+      "result": "ESFJ",
+      "date": "2025. 2. 24. 오후 8:58:12"
     }
   ]
 }
