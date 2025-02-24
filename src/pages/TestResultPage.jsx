@@ -6,9 +6,11 @@ import {
 } from "@tanstack/react-query";
 import React from "react";
 import { deleteTestResult, getTestResults } from "../api/testResults";
+import { useAuth } from "../hook/useAuth";
 import { mbtiDescriptions } from "../utils/mbtiCalculator";
 
 const TestResultPage = () => {
+  const { user } = useAuth();
   const queryClient = useQueryClient();
   const {
     data: results,
@@ -57,19 +59,24 @@ const TestResultPage = () => {
               {" "}
               {mbtiDescriptions[result.result]}
             </p>
-            <div className="flex flex-row gap-3 justify-end">
-              <button className="bg-blue-500 text-white w-13 hover:bg-blue-400 p-4 border-2 border-none rounded-xl">
-                공개로 전환
-              </button>
-              <button
-                onClick={() => {
-                  handleDelete(result.id);
-                }}
-                className="bg-red-500 text-white w-13 hover:bg-red-400 p-4 border-2 border-none rounded-xl"
-              >
-                삭제
-              </button>
-            </div>
+
+            {user.id === result.userId ? (
+              <div className="flex flex-row gap-3 justify-end">
+                <button className="bg-blue-500 text-white w-13 hover:bg-blue-400 p-4 border-2 border-none rounded-xl">
+                  공개로 전환
+                </button>
+                <button
+                  onClick={() => {
+                    handleDelete(result.id);
+                  }}
+                  className="bg-red-500 text-white w-13 hover:bg-red-400 p-4 border-2 border-none rounded-xl"
+                >
+                  삭제
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </li>
         ))}
       </ul>
