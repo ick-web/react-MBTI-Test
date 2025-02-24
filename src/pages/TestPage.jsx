@@ -3,8 +3,10 @@ import TestForm from "../components/TestForm";
 import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { createTestResult } from "../api/testResults";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hook/useAuth";
 
 const TestPage = () => {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
 
@@ -13,7 +15,7 @@ const TestPage = () => {
     setResult(mbtiResult);
     /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
     try {
-      return await createTestResult({ result: mbtiResult });
+      return await createTestResult({ nickname: user.nickname ,id:user.id, result: mbtiResult });
     } catch (error) {
       console.log("테스트 결과 저장 오류:", error);
       return "error";
@@ -21,7 +23,7 @@ const TestPage = () => {
   };
 
   const handleNavigateToResults = () => {
-    navigate("/results");
+    navigate("/result");
   };
 
   return (
@@ -37,7 +39,7 @@ const TestPage = () => {
         ) : (
           <>
             <h1 className="text-3xl font-bold text-primary-color mb-6">
-              테스트 결과: {result}
+              {user.nickname} 님 <br/> 테스트 결과: {result}
             </h1>
             <p className="text-lg text-gray-700 mb-6">
               {mbtiDescriptions[result] ||
