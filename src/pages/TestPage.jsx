@@ -4,13 +4,19 @@ import { calculateMBTI, mbtiDescriptions } from "../utils/mbtiCalculator";
 import { createTestResult } from "../api/testResults";
 import { useNavigate } from "react-router-dom";
 
-const TestPage = ({ user }) => {
+const TestPage = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
 
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);
-		/* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
+    /* Test 결과는 mbtiResult 라는 변수에 저장이 됩니다. 이 데이터를 어떻게 API 를 이용해 처리 할 지 고민해주세요. */
+    try {
+      return await createTestResult({ result: mbtiResult });
+    } catch (error) {
+      console.log("테스트 결과 저장 오류:", error);
+      return "error";
+    }
   };
 
   const handleNavigateToResults = () => {

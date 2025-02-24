@@ -27,6 +27,6 @@ export const getUserProfile = async () => {
 
 // 프로필 수정 (PATCH)
 export const updateProfile = async (formData) => {
-  const response = await axios.get(`${API_URL}/profile`, formData);
+  const response = await axios.patch(`${API_URL}/profile`, formData);
   return response.data;
 };
