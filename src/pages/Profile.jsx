@@ -30,7 +30,6 @@ const Profile = () => {
               className="w-full p-4 m-4 border border-gray-300 rounded-lg"
               onChange={handleNicknameChange}
               value={nickname}
-              placeholder="닉네임"
             />
           <button className="bg-blue-500 text-white w-full hover:bg-blue-400 p-4 m-4 border-2 border-solid rounded-xl" type="submit">프로필 업데이트</button>
           </div>
