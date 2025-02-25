@@ -9,7 +9,6 @@ import TestPage from "./pages/TestPage";
 import TestResultPage from "./pages/TestResultPage";
 import Layout from "./shared/Layout";
 import ProtectedLayout from "./shared/ProtectedLayout";
-import { useAuth } from "./hook/useAuth";
 
 const queryClient = new QueryClient();
 

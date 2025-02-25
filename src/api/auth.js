@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://www.nbcamp-react-auth.link";
+const API_URL = "https://typical-grand-monday.glitch.me";
 
 // 회원가입 (POST)
 export const register = async (userData) => {
@@ -32,10 +32,10 @@ export const getUserProfile = async () => {
 
 // 프로필 수정 (PATCH)
 export const updateProfile = async (formData) => {
-  const token = localStorage.getItem("accessToken")
-  if(!token) throw new Error("No token found")
-  const response = await axios.patch(`${API_URL}/profile`, formData,{
-    headers: { Authorization: `Bearer ${token}`},
+  const token = localStorage.getItem("accessToken");
+  if (!token) throw new Error("No token found");
+  const response = await axios.patch(`${API_URL}/profile`, formData, {
+    headers: { Authorization: `Bearer ${token}` },
   });
   return response.data;
 };

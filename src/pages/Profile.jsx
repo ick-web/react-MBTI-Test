@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getUserProfile, updateProfile } from "../api/auth";
+import { updateProfile } from "../api/auth";
 import { useAuth } from "../hook/useAuth";
 
 const Profile = () => {
@@ -12,12 +12,13 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try { await updateProfile({nickname});
-    alert("프로필이 성공적으로 업데이트되었습니다")
-  } catch (error){
-    console.log("프로필 업데이트 오류:", error)
-    alert("프로필 업데이트에 실패했습니다. 다시 시도해주세요")
-  }
+    try {
+      await updateProfile({ nickname });
+      alert("프로필이 성공적으로 업데이트되었습니다");
+    } catch (error) {
+      console.log("프로필 업데이트 오류:", error);
+      alert("프로필 업데이트에 실패했습니다. 다시 시도해주세요");
+    }
   };
 
   return (
@@ -31,7 +32,12 @@ const Profile = () => {
               onChange={handleNicknameChange}
               value={nickname}
             />
-          <button className="bg-blue-500 text-white w-full hover:bg-blue-400 p-4 m-4 border-2 border-solid rounded-xl" type="submit">프로필 업데이트</button>
+            <button
+              className="bg-blue-500 text-white w-full hover:bg-blue-400 p-4 m-4 border-2 border-solid rounded-xl"
+              type="submit"
+            >
+              프로필 업데이트
+            </button>
           </div>
         </form>
       </div>
