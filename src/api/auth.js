@@ -32,6 +32,10 @@ export const getUserProfile = async () => {
 
 // 프로필 수정 (PATCH)
 export const updateProfile = async (formData) => {
-  const response = await axios.patch(`${API_URL}/profile`, formData);
+  const token = localStorage.getItem("accessToken")
+  if(!token) throw new Error("No token found")
+  const response = await axios.patch(`${API_URL}/profile`, formData,{
+    headers: { Authorization: `Bearer ${token}`},
+  });
   return response.data;
 };

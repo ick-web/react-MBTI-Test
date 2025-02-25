@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { updateProfile } from "../api/auth";
+import { getUserProfile, updateProfile } from "../api/auth";
 import { useAuth } from "../hook/useAuth";
 
 const Profile = () => {
@@ -12,7 +12,12 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    updateProfile({nickname:nickname});
+    try { await updateProfile({nickname});
+    alert("프로필이 성공적으로 업데이트되었습니다")
+  } catch (error){
+    console.log("프로필 업데이트 오류:", error)
+    alert("프로필 업데이트에 실패했습니다. 다시 시도해주세요")
+  }
   };
 
   return (
