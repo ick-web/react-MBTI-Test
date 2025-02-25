@@ -63,7 +63,7 @@ const TestResultPage = () => {
             {user.id === result.userId ? (
               <div className="flex flex-row gap-3 justify-end">
                 <button className="bg-blue-500 text-white w-13 hover:bg-blue-400 p-4 border-2 border-none rounded-xl">
-                  공개로 전환
+                  비공개로 전환
                 </button>
                 <button
                   onClick={() => {
