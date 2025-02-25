@@ -21,6 +21,8 @@ const TestResultPage = () => {
     queryFn: getTestResults,
   });
 
+  console.log("API 응답 데이터:",results)
+
   const { mutate } = useMutation({
     mutationFn: deleteTestResult,
     onSuccess: () => {
